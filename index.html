@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!-- 
+Made With Love By @mrxloka 
+contact me :
+fackebook : https://www.facebook.com/xlokacom
+twitter : https://twitter.com/mrxloka
+Google plus : https://plus.google.com/+AhmedSalehxloka
+tumblr : http://tumblr.xloka.com 
+Github : https://github.com/Xloka
+Webiste : xloka.com
+email : a.saleh.ismael@gmail.com or xloka@xloka.com
+-->
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+        <title>{Title}{block:SearchPage} ({lang:Search results for SearchQuery}){/block:SearchPage}{block:PermalinkPage}{block:PostSummary} — {PostSummary}{/block:PostSummary}{/block:PermalinkPage}</title>
+        <meta name="author" content="@mrxloka"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        {block:Description}
+        <meta name="description" content="{MetaDescription}" />
+        {/block:Description}
+        
+        <style>
+               *{
+                position:relative;
+                margin:0;
+                padding:0;
+                outline:none;
+            }
+            a,li,div,img,h1,p {
+                transition: all 300ms linear;
+                -webkit-transition: all 300ms linear;
+                -moz-transition: all 300ms linear;
+                -o-transition: all 300ms linear;
+                -ms-transition: all 300ms linear;
+                -webkit-font-smoothing: antialiased; 
+            }
+            body{
+                color:{AccentColor};
+                background-color:{BackgroundColor};
+            }
+            a,a:hover,a:active,a:focus{
+                text-decoration:none;
+            }
+            h1{
+                font-family:{TitleFont};
+                font-weight:{TitleFontWeight};
+                color:{TitleColor};
+            }
+            .header{
+                padding:100px;
+                text-align:center;
+               {block:ShowHeaderImage}
+                background-image:url({HeaderImage});
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: fixed;
+                background-position: 50% 50%;
+              {/block:ShowHeaderImage}
+            }
+            .square{
+                border-radius:10px;
+            }
+            .circle{
+                border-radius:50%;
+            }
+            {block:PermalinkPage} 
+            .post,.date-holder {
+                width: 640px;
+            }
+            .post .h3{
+                font-size:30px;
+                padding:20px;
+            }
+            {/block:PermalinkPage}
+            .post{
+                background-color:{BackgroundColor};
+                padding: 50px 20px;
+                width: 500px;
+                margin: 0 auto;
+                border-radius:6px;
+            }
+            .post img:hover,.logo:hover,.audio:hover,.video:hover{
+                -webkit-filter: grayscale(0%);
+                -moz-filter: grayscale(0%);
+                -ms-filter: grayscale(0%);
+                -o-filter: grayscale(0%);
+                filter: grayscale(0%); 
+            }
+            .post img,.logo,.audio,.video{
+                -webkit-filter: grayscale(100%);
+                -moz-filter: grayscale(100%);
+                -ms-filter: grayscale(100%);
+                -o-filter: grayscale(100%);
+                filter: grayscale(100%); 
+            }
+            
+        </style>
+        
+        <script type="text/javascript">
+            
+        </script>
+        </head>
+
+    <body>
+       
+        <div class="header">
+             {block:ShowAvatar}
+            <a href="{BlogURL}"> <img class="logo centered {AvatarShape}" src="{PortraitURL-128}" alt="Portrait"> </a>
+            {/block:ShowAvatar}
+            {block:ShowTitle}
+            <a href="{BlogURL}"><h1>{Title}</h1></a>
+            {/block:ShowTitle}
+            {block:Description}
+            <p id="description">{Description}</p>
+            {/block:Description}
+        </div>
+        <div class="content">
+            {block:Posts}{block:Text}
+<div class="post text">
+{block:Title}
+<h3><a href="{Permalink}">{Title}</a></h3>
+{/block:Title}{Body}
+ </div>
+{/block:Text}{block:Photo}
+<div class="post photo">
+<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+
+{block:Caption}
+<div class="caption">{Caption}</div>
+{/block:Caption}
+ </div>
+{/block:Photo}{block:Panorama}
+<div class="post panorama">
+{LinkOpenTag}
+<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+{LinkCloseTag}{block:Caption}
+<div class="caption">{Caption}</div>
+{/block:Caption}
+ </div>
+{/block:Panorama}{block:Photoset}
+<div class="post photoset">
+{Photoset-500}{block:Caption}
+<div class="caption">{Caption}</div>
+{/block:Caption}
+ </div>
+{/block:Photoset}{block:Quote}
+<div class="post quote">
+<div id="quote" class="{Length}">{Quote}</div>
+
+{block:Source}
+<div id="source">_ {Source}</div>
+{/block:Source}
+ </div>
+{/block:Quote}{block:Link}
+<div class="post link">
+<a href="{URL}" class="link" {Target}>{Name}</a>
+
+{block:Description}
+<div class="description">{Description}</div>
+{/block:Description}
+ </div>
+{/block:Link}{block:Chat}
+<div class="post chat">
+{block:Title}
+<h3><a href="{Permalink}">{Title}</a></h3>
+{/block:Title}
+
+<ul class="chat">
+{block:Lines}
+<div class="{Alt} user_{UserNumber}">
+{block:Label}
+<span class="label">{Label}</span>
+{/block:Label}{Line}
+ </div>
+{/block:Lines}
+</ul>
+ </div>
+{/block:Chat}{block:Video}
+<div class="post video">
+{Video-500}{block:Caption}
+<div class="caption">{Caption}</div>
+{/block:Caption}
+ </div>
+{/block:Video}{block:Audio}
+<div class="post audio">
+{AudioEmbed}{block:Caption}
+<div class="caption">{Caption}</div>
+{/block:Caption}
+ </div>
+{/block:Audio}{block:Answer}
+<div id="{PostID}" class="post answer">
+<div class="question">
+<img id="avatar" src="{AskerPortraitURL-48}">
+<span id="asker">{Asker} asked:</span>
+<div id="text">{Question}</div>
+</div>
+<div id="answer">{Answer}</div>
+</div>
+{/block:Answer}
+<div class="date-holder">
+{block:HasTags}
+<ul class="tags">
+{block:Tags}
+<li>
+<a href="{TagURL}">#{Tag}</a>
+</li>
+{/block:Tags}
+</ul>
+{/block:HasTags}
+{block:Date} 
+<div class="buttons">
+  <span class="like">{LikeButton size="20" color="black"}</span>
+  <span class="reblog">{ReblogButton size="20" color="black"}</span>
+</div>
+<div class="date">
+{block:NoteCount}
+<a href="{Permalink}" >{NoteCountWithLabel}</a>
+{/block:NoteCount}
+<a href="{Permalink}" >{TimeAgo}</a>
+</div> 
+{/block:Date}
+</div>
+{block:PermalinkPage} 
+<div class="share-icons">
+<ul>
+<li>
+<a target="_blank" href="mailto:?Subject=Shared Link&Body=check this {Permalink}">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-at fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a target="_blank" href="http://www.facebook.com/sharer.php?u={Permalink}">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a target="_blank" href="https://plus.google.com/share?url={Permalink}">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a target="_blank" href="http://vkontakte.ru/share.php?url={Permalink}">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-vk fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url={Permalink}">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a target="_blank" href="http://twitter.com/share?url={Permalink}&text={Title}">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a target="_blank" href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
+<span class="fa-stack fa-lg">
+<i class="fa fa-circle fa-stack-2x"></i>
+<i class="fa fa-pinterest fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+<div><br><br></div>
+{block:IfDisqusShortname}
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = '{text:Disqus Shortname}'; 
+    var disqus_url = '{Permalink}'; 
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+{/block:IfDisqusShortname}
+</div>
+{/block:PermalinkPage}
+{/block:Posts}
+        </div>
+    </body>
+</html>
